@@ -1,3 +1,0 @@
-/root/work/oj/rand_input/cmake-debug-build/CMakeFiles/rebuild_cache.dir
-/root/work/oj/rand_input/cmake-debug-build/CMakeFiles/edit_cache.dir
-/root/work/oj/rand_input/cmake-debug-build/CMakeFiles/target.dir
