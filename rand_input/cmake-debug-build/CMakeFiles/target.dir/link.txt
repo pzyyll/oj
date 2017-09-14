@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/target.dir/rand_input.cpp.o  -o target 
