@@ -138,7 +138,7 @@ int GetMinimumPr(int n) {
  * p is odd prime
  */
 bool Exist(int n) {
-    if (n == 1 || n == 2 || n == 4 || IsPrime(n))
+    if (n == 2 || n == 4 || IsPrime(n))
         return true;
     if (n % 2 == 0)
         n /= 2;
@@ -175,8 +175,11 @@ void Solve(int n) {
     res.push_back(g);
     sort(res.begin(), res.end());
 
-    for (unsigned i = 0; i < res.size(); ++i)
-        cout << res[i] << " ";
+    for (unsigned i = 0; i < res.size(); ++i) {
+        cout << res[i];
+        if (i != res.size() - 1)
+            cout << " ";
+    }
     cout << endl;
 }
 
