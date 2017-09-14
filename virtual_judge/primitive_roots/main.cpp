@@ -138,6 +138,8 @@ int GetMinimumPr(int n) {
  * p is odd prime
  */
 bool Exist(int n) {
+    if (n < 2)
+        return false;
     if (n == 2 || n == 4 || IsPrime(n))
         return true;
     if (n % 2 == 0)
@@ -165,7 +167,7 @@ void Solve(int n) {
     vector<int> res;
     int g = GetMinimumPr(n);
     int phi = Phi(n);
-    for (int i = 3; i < phi; i += 2) {
+    for (int i = 2; i < phi; ++i) {
         if (Gcd(i, phi) == 1) {
             int a = MontModMult(g, i, n);
             res.push_back(a);
@@ -181,6 +183,7 @@ void Solve(int n) {
             cout << " ";
     }
     cout << endl;
+
 }
 
 int main() {
