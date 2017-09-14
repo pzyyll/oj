@@ -19,7 +19,6 @@ bool prime_table[MAXN + 10];
 inline void InitPrimeTable() {
     memset(prime_table, 1, sizeof(prime_table));
     prime_table[0] = prime_table[1] = 0;
-    prime_table[2] = 1;
     for (int i = 2; i * i <= MAXN; ++i) {
         if (prime_table[i]) {
             for (int j = i + i; j <= MAXN; j += i) {
@@ -145,16 +144,14 @@ bool Exist(int n) {
     if (n % 2 == 0)
         n /= 2;
 
-    for (int i = 3; i <= n; i += 2) {
+    for (int i = 3; i * i <= n; i += 2) {
         if (IsPrime(i) && n % i == 0) {
             while (n % i == 0)
                 n /= i;
-            break;
+            return n == 1;
         }
     }
 
-    if (n == 1)
-        return true;
     return false;
 }
 
