@@ -5,10 +5,18 @@
 
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 #include <vector>
 #include <cstring>
 
 using namespace std;
+
+#ifdef FILEINPUT
+ifstream fin("input.txt");
+ofstream fout("out.txt");
+#define cin fin
+#define cout fout
+#endif  //FILEINPUT
 
 #define MAXN 1000000
 
@@ -87,7 +95,7 @@ int Phi(int n) {
 
 void GetPrimeFactor(int n, vector<int> &pf) {
     int res = n;
-    for (int i = 2; i * i <= n; ++i) {
+    for (int i = 2; i <= n && res != 1; ++i) {
         if (IsPrime(i) && res % i == 0) {
             while (res % i == 0)
                 res /= i;
@@ -114,13 +122,15 @@ long long MontModMult(long long a, long long b, long long m) {
 int GetMinimumPr(int n) {
     if (n <= 2)
         return n - 1;
+
+    int phi = Phi(n);
+    vector<int> pf;
+    GetPrimeFactor(phi, pf);
+
     for (int i = 2; i < n; ++i) {
         if (Gcd(i, n) == 1) {
             bool find = true;
-            int phi = Phi(n);
-            vector<int> pf;
-            GetPrimeFactor(phi, pf);
-            for (unsigned j = 0; j < pf.size(); ++j) {
+             for (unsigned j = 0; j < pf.size(); ++j) {
                 if (MontModMult(i, phi / pf[j], n) == 1)
                     find = false;
             }
@@ -139,10 +149,13 @@ int GetMinimumPr(int n) {
 bool Exist(int n) {
     if (n < 2)
         return false;
-    if (n == 2 || n == 4 || IsPrime(n))
+    if (n == 2 || n == 4)
         return true;
     if (n % 2 == 0)
         n /= 2;
+
+    if (IsPrime(n))
+        return true;
 
     for (int i = 3; i * i <= n; i += 2) {
         if (IsPrime(i) && n % i == 0) {
