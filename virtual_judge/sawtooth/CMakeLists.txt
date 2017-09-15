@@ -4,7 +4,7 @@ project(oj)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE debug CACHE STRING "build debug")
 
-add_definitions(-W -Wall )
+add_definitions(-W -Wall -DPRINT)
 
 aux_source_directory(./ SOURCE_FILES)
 
