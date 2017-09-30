@@ -18,15 +18,20 @@ One integer each line: the divisor summation of the integer given respectively.
 #### Sample Input
 
 3
+
 2
+
 10
+
 20
 
 
 #### Sample Output
 
 1
+
 8
+
 22
 
 ---
