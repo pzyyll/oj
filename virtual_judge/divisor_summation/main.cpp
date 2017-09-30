@@ -10,23 +10,25 @@
 
 #define MAXN 500000
 
-bool prime_table[MAXN + 10];
-inline void InitPrimeTable() {
-    memset(prime_table, 1, sizeof(prime_table));
-    prime_table[0] = prime_table[1] = 0;
-    for (int i = 2; i * i <= MAXN; ++i) {
-        if (prime_table[i]) {
-            for (int j = i + i; j <= MAXN; j += i)
-                prime_table[j] = false;
-        }
-    }
-}
-
-//todo 
-
 using namespace std;
 
+long long dp[MAXN + 10];
+
 int main() {
+
+    for (int i = 1; i <= MAXN; ++i) {
+        for (int j = 2 * i; j <= MAXN; j += i) {
+            dp[j] += i;
+        }
+    }
+
+    int n, m;
+    while (cin >> n) {
+        while (n--) {
+            cin >> m;
+            cout << dp[m] << endl;
+        }
+    }
 
     return 0;
 }
