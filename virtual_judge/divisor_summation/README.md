@@ -35,3 +35,17 @@ One integer each line: the divisor summation of the integer given respectively.
 22
 
 ---
+
+### 相关知识
+
+约数和定理
+
+素数分解
+
+然而以上并没有用到
+
+更类似于找规律。
+
+利用类似素数表的方式快速求得约数和.
+
+没明白证明原理，但是能知道规律...
