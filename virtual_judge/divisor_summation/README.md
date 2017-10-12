@@ -40,6 +40,8 @@ One integer each line: the divisor summation of the integer given respectively.
 
 - 约数和定理
 
+[约数和定理](https://github.com/pzyyll/oj/blob/master/virtual_judge/divisor_summation/pic/sum_of_appr.jpg)
+
 - 素数分解
 
 然而以上并没有用到
